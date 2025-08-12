@@ -1,9 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My GitHub Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi - Senior Technical Lead</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #0077b5;
+            padding-bottom: 20px;
+        }
+        h1 {
+            color: #0077b5;
+            margin: 0;
+        }
+        h2 {
+            color: #555;
+        }
+        .contact {
+            margin: 20px 0;
+        }
+        a {
+            color: #0077b5;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .skill {
+            background: #e3f2fd;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <div class="container">
+        <header>
+            <h1>Ravi</h1>
+            <h2>Senior Technical Lead</h2>
+        </header>
+
+        <section class="about">
+            <p>Hello! I'm a seasoned technical professional with expertise in full-stack development, microservices architecture, and cloud technologies. I specialize in building scalable, high-performance applications using modern frameworks and tools.</p>
+        </section>
+
+        <section class="contact">
+            <h3>Connect with me:</h3>
+            <p>
+                <a href="https://www.linkedin.com/in/d-ravi-b84ab156/" target="_blank">LinkedIn Profile</a>
+            </p>
+        </section>
+
+        <section class="expertise">
+            <h3>Technical Expertise:</h3>
+            <div class="skills">
+                <span class="skill">Spring</span>
+                <span class="skill">Spring Boot</span>
+                <span class="skill">Micronaut</span>
+                <span class="skill">Java</span>
+                <span class="skill">Microservices</span>
+                <span class="skill">React</span>
+                <span class="skill">Full Stack Development</span>
+                <span class="skill">AWS</span>
+                <span class="skill">Python</span>
+            </div>
+        </section>
+
+        <footer>
+            <p>© <span id="year"></span> Ravi. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Auto-update year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
