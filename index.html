@@ -3,110 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ravi - Senior Technical Lead</title>
+    <title>Ravi | Senior Technical Lead</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+        :root {
+            --primary: #6C63FF;
+            --dark: #2F2E41;
+            --light: #F8F9FA;
+            --accent: #FF6584;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: #f4f4f9;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Animated gradient background */
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #2F2E41, #3F3D56, #6C63FF, #FF6584);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
         .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
+        
         header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #0077b5;
-            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            animation: fadeIn 1s ease;
         }
-        h1 {
-            color: #0077b5;
-            margin: 0;
-        }
-        h2 {
-            color: #555;
-        }
-        .contact {
-            margin: 20px 0;
-        }
-        a {
-            color: #0077b5;
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
             text-decoration: none;
         }
-        a:hover {
-            text-decoration: underline;
+        
+        .logo span {
+            color: var(--accent);
         }
-        .skills {
+        
+        nav a {
+            color: var(--light);
+            margin-left: 2rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
+            align-items: center;
+            min-height: 80vh;
+            padding: 4rem 0;
         }
-        .skill {
-            background: #e3f2fd;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.9em;
+        
+        .hero-content {
+            flex: 1;
+            padding-right: 2rem;
         }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        h1 span {
+            color: var(--accent);
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            margin-left: 1rem;
+        }
+        
+        .skills {
+            margin-top: 3rem;
+        }
+        
+        .skills h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+        
+        .skill-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .skill-item i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
         footer {
             text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            font-size: 0.9em;
-            color: #777;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 0;
+            }
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="bg"></div>
+    
     <div class="container">
         <header>
-            <h1>Ravi</h1>
-            <h2>Senior Technical Lead</h2>
+            <a href="#" class="logo">Ravi<span>.</span></a>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </header>
-
-        <section class="about">
-            <p>Hello! I'm a seasoned technical professional with expertise in full-stack development, microservices architecture, and cloud technologies. I specialize in building scalable, high-performance applications using modern frameworks and tools.</p>
-        </section>
-
-        <section class="contact">
-            <h3>Connect with me:</h3>
-            <p>
-                <a href="https://www.linkedin.com/in/d-ravi-b84ab156/" target="_blank">LinkedIn Profile</a>
-            </p>
-        </section>
-
-        <section class="expertise">
-            <h3>Technical Expertise:</h3>
-            <div class="skills">
-                <span class="skill">Spring</span>
-                <span class="skill">Spring Boot</span>
-                <span class="skill">Micronaut</span>
-                <span class="skill">Java</span>
-                <span class="skill">Microservices</span>
-                <span class="skill">React</span>
-                <span class="skill">Full Stack Development</span>
-                <span class="skill">AWS</span>
-                <span class="skill">Python</span>
+        
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Senior <span>Technical Lead</span> with Full Stack Expertise</h1>
+                <h2>Building scalable microservices & cloud-native applications using Spring, Java, React, and AWS.</h2>
+                
+                <div class="skills">
+                    <h3>My Tech Stack:</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-java"></i>
+                            <div>Java</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-leaf"></i>
+                            <div>Spring</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-server"></i>
+                            <div>Micronaut</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <div>React</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-aws"></i>
+                            <div>AWS</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <div>Python</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="https://www.linkedin.com/in/d-ravi-b84ab156/" class="btn" target="_blank">
+                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                </a>
+            </div>
+            
+            <div class="hero-image">
+                <!-- Replace with your photo or a tech illustration -->
+                <img src="https://illustrations.popsy.co/amber/developer-activity.svg" alt="Tech Illustration">
             </div>
         </section>
-
+        
         <footer>
             <p>© <span id="year"></span> Ravi. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/d-ravi-b84ab156/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
         </footer>
     </div>
-
+    
     <script>
-        // Auto-update year in footer
+        // Auto-update year
         document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
